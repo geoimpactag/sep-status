@@ -1,13 +1,20 @@
 module.exports = {
   env: {
-    browser: true,
-    es2021: true
+    browser: false,
+    es2022: true
   },
-  extends: 'standard-with-typescript',
+  extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended'],
+  parser: '@typescript-eslint/parser',
+  plugins: ['@typescript-eslint'],
+  root: true,
   parserOptions: {
+    project: [
+      './tsconfig.json'
+    ],
     ecmaVersion: 'latest',
     sourceType: 'module'
   },
   rules: {
+    '@typescript-eslint/prefer-nullish-coalescing': "off"
   }
 }

@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "cypress:open": "cross-env CHOKIDAR_USEPOLLING=1 npx cypress open",
     "test": "npm run notify-build && npm run report && npm run notify",
@@ -15,6 +16,7 @@
   "license": "ISC",
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.59.9",
+    "@typescript-eslint/parser": "^5.59.9",
     "cross-env": "^7.0.3",
     "cypress": "^12.14.0",
     "dotenv": "^16.1.4",
