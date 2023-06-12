@@ -52,7 +52,7 @@ jobs:
       - run: ls -lah docs
         with:
           # Upload entire repository
-          path: './docs'
+          path: '.'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
