@@ -24,5 +24,6 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+    - run: echo "the SLACK_URL env variable is $SLACK_URL"
     - run: npm i
     - run: npm run test
