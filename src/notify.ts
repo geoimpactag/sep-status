@@ -10,7 +10,9 @@ console.log('Got the report file', report)
 * Check if all needed env variables are set
 * */
 function checkEnv(){
-  if(process.env.SLACK_URL === undefined){
+  if(
+      !!process.env.SLACK_URL === false
+  ){
     throw new Error("process.env.SLACK_URL is not defined.")
   }
 }
