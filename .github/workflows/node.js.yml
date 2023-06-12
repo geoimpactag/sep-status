@@ -10,7 +10,7 @@ on:
     branches: [ "master" ]
 jobs:
   build:
-    environment: "env-sep-status"
+    environment: env-sep-status
     runs-on: ubuntu-latest
     strategy:
       matrix:
