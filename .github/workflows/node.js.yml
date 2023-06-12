@@ -13,6 +13,11 @@ on:
     - cron: '*/2 * * * *'
 env:
   SLACK_URL: ${{ secrets.SLACK_URL }}
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 jobs:
   build:
     environment:
@@ -33,6 +38,7 @@ jobs:
       - run: npm i
       - run: npm run test
   deploy:
+    needs: build
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
