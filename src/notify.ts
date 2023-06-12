@@ -7,8 +7,17 @@ console.log('Starting the sep-status notification servivce.')
 console.log('Got the report file', report)
 
 /*
-    Crates a Slack notification
-*/
+* Check if all needed env variables are set
+* */
+function checkEnv(){
+  if(process.env.SLACK_URL === undefined){
+    throw new Error("process.env.SLACK_URL is not defined.")
+  }
+}
+
+/*
+* Crates a Slack notification
+* */
 async function pushMessageToSlack (message: string): Promise<any> {
   const apiUrl = process.env.SLACK_URL
   try {
@@ -33,6 +42,7 @@ async function pushMessageToSlack (message: string): Promise<any> {
 }
 
 await (async () => {
+  checkEnv();
   const message = `Tests passed: ${report.results[0].passes.length}\nTests failed: ${report.results[0].failures.length}`
   const res = await pushMessageToSlack(message)
   console.log('message has been delivered to slack', res)

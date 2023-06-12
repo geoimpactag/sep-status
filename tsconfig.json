@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
-    "types": ["node"],
+    "types": ["cypress", "node"],
+    "lib": ["dom"],
     "module": "es2022",
     "moduleResolution": "node",
     "target": "es2022",

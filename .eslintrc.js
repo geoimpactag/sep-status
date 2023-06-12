@@ -9,7 +9,8 @@ module.exports = {
   root: true,
   parserOptions: {
     project: [
-      './tsconfig.json'
+      './tsconfig.json',
+      './cypress/tsconfig.json'
     ],
     ecmaVersion: 'latest',
     sourceType: 'module'

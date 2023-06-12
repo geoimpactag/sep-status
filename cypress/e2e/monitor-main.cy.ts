@@ -10,23 +10,37 @@ const urls = [
   {
     "name": "SwissEnergyPlanning",
     "url": "https://www.swissenergyplanning.ch"
+  },
+  {
+    "name": "Reporterenergie",
+    "url": "https://reporterenergie.ch/"
+  },
+  {
+    "name": "Reporterenergetico",
+    "url": "https://reporterenergetico.ch/"
+  },
+  {
+    "name": "Energiereporter",
+    "url": "https://energiereporter.ch/"
   }
 ]
-function test(urlElement){
+function testUrl(urlElement): void {
   cy.visit(urlElement.url);
   if(urlElement.url === "https://sep.energyapps.ch"){
     cy.get("body").should("exist");
   }
-  if(urlElement.url === "https://www.geoimpact.ch"){
+  else if(urlElement.url === "https://www.geoimpact.ch"){
     cy.get("body").should("exist");
   }
-  if(urlElement.url === "https://www.swissenergyplanning.ch"){
+  else if(urlElement.url === "https://www.swissenergyplanning.ch"){
+    cy.get("body").should("exist");
+  } else {
     cy.get("body").should("exist");
   }
 }
 
 urls.forEach(urlElement => {
   it(`opens ${urlElement.url}`,() => {
-    test(urlElement);
+    testUrl(urlElement);
   })
-})
+});
