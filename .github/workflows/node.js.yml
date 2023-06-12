@@ -24,7 +24,10 @@ jobs:
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
+        SLACK_URL: ${{ secrets.SLACK_URL }}
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+      env:
+        SLACK_URL: ${{ secrets.SLACK_URL }}
     - run: npm i
     - run: npm run test
