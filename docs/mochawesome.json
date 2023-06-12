@@ -1,0 +1,182 @@
+{
+  "stats": {
+    "suites": 0,
+    "tests": 6,
+    "passes": 6,
+    "pending": 0,
+    "failures": 0,
+    "start": "2023-06-12T11:11:24.673Z",
+    "end": "2023-06-12T11:12:12.602Z",
+    "duration": 47929,
+    "testsRegistered": 6,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "36f57c09-4f12-4cb1-9009-d5e80b8cbc80",
+      "title": "",
+      "fullFile": "cypress\\e2e\\monitor-main.cy.ts",
+      "file": "cypress\\e2e\\monitor-main.cy.ts",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [
+        {
+          "title": "opens https://sep.energyapps.ch",
+          "fullTitle": "opens https://sep.energyapps.ch",
+          "timedOut": null,
+          "duration": 940,
+          "state": "passed",
+          "speed": "fast",
+          "pass": true,
+          "fail": false,
+          "pending": false,
+          "context": null,
+          "code": "testUrl(urlElement);",
+          "err": {},
+          "uuid": "b41ec99e-59a5-4a86-98be-5e32d0f25a38",
+          "parentUUID": "36f57c09-4f12-4cb1-9009-d5e80b8cbc80",
+          "isHook": false,
+          "skipped": false
+        },
+        {
+          "title": "opens https://www.geoimpact.ch",
+          "fullTitle": "opens https://www.geoimpact.ch",
+          "timedOut": null,
+          "duration": 1163,
+          "state": "passed",
+          "speed": "fast",
+          "pass": true,
+          "fail": false,
+          "pending": false,
+          "context": null,
+          "code": "testUrl(urlElement);",
+          "err": {},
+          "uuid": "cbe53946-c045-4155-939e-865d9b16741e",
+          "parentUUID": "36f57c09-4f12-4cb1-9009-d5e80b8cbc80",
+          "isHook": false,
+          "skipped": false
+        },
+        {
+          "title": "opens https://www.swissenergyplanning.ch",
+          "fullTitle": "opens https://www.swissenergyplanning.ch",
+          "timedOut": null,
+          "duration": 30483,
+          "state": "passed",
+          "speed": "slow",
+          "pass": true,
+          "fail": false,
+          "pending": false,
+          "context": null,
+          "code": "testUrl(urlElement);",
+          "err": {},
+          "uuid": "28ff927e-78ad-4b57-89f9-ecd89c79626d",
+          "parentUUID": "36f57c09-4f12-4cb1-9009-d5e80b8cbc80",
+          "isHook": false,
+          "skipped": false
+        },
+        {
+          "title": "opens https://reporterenergie.ch/",
+          "fullTitle": "opens https://reporterenergie.ch/",
+          "timedOut": null,
+          "duration": 2691,
+          "state": "passed",
+          "speed": "fast",
+          "pass": true,
+          "fail": false,
+          "pending": false,
+          "context": null,
+          "code": "testUrl(urlElement);",
+          "err": {},
+          "uuid": "2775a0c9-404b-44b2-ac9b-2d87dc2937c4",
+          "parentUUID": "36f57c09-4f12-4cb1-9009-d5e80b8cbc80",
+          "isHook": false,
+          "skipped": false
+        },
+        {
+          "title": "opens https://reporterenergetico.ch/",
+          "fullTitle": "opens https://reporterenergetico.ch/",
+          "timedOut": null,
+          "duration": 730,
+          "state": "passed",
+          "speed": "fast",
+          "pass": true,
+          "fail": false,
+          "pending": false,
+          "context": null,
+          "code": "testUrl(urlElement);",
+          "err": {},
+          "uuid": "f45ce826-4dc8-436f-ba5e-dfa89e3b37de",
+          "parentUUID": "36f57c09-4f12-4cb1-9009-d5e80b8cbc80",
+          "isHook": false,
+          "skipped": false
+        },
+        {
+          "title": "opens https://energiereporter.ch/",
+          "fullTitle": "opens https://energiereporter.ch/",
+          "timedOut": null,
+          "duration": 2091,
+          "state": "passed",
+          "speed": "fast",
+          "pass": true,
+          "fail": false,
+          "pending": false,
+          "context": null,
+          "code": "testUrl(urlElement);",
+          "err": {},
+          "uuid": "2c219855-d324-4e2a-a21e-2399c996c3cb",
+          "parentUUID": "36f57c09-4f12-4cb1-9009-d5e80b8cbc80",
+          "isHook": false,
+          "skipped": false
+        }
+      ],
+      "suites": [],
+      "passes": [
+        "b41ec99e-59a5-4a86-98be-5e32d0f25a38",
+        "cbe53946-c045-4155-939e-865d9b16741e",
+        "28ff927e-78ad-4b57-89f9-ecd89c79626d",
+        "2775a0c9-404b-44b2-ac9b-2d87dc2937c4",
+        "f45ce826-4dc8-436f-ba5e-dfa89e3b37de",
+        "2c219855-d324-4e2a-a21e-2399c996c3cb"
+      ],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 38098,
+      "root": true,
+      "rootEmpty": false,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/results",
+        "overwrite": true,
+        "html": true,
+        "json": true,
+        "reportFilename": "mochawesome"
+      },
+      "version": "6.2.0"
+    }
+  }
+}
