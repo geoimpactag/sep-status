@@ -10,6 +10,7 @@ on:
     branches: [ "master" ]
 env:
   SLACK_URL: ${{ vars.SLACK_URL }}
+  SLACK_URL_SECRET: ${{ secrets.SLACK_URL }}
 jobs:
   build:
     environment:
@@ -22,13 +23,11 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Use Node.js ${{ matrix.node-version }}
-        env:
-          SLACK_URL: ${{ vars.SLACK_URL }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
-          SLACK_URL: ${{ vars.SLACK_URL }}
       - run: echo "the SLACK_URL env variable is $SLACK_URL"
+      - run: echo "the SLACK_URL_SECRET env variable is $SLACK_URL_SECRET"
       - run: npm i
       - run: npm run test
