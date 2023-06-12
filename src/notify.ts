@@ -37,6 +37,7 @@ async function pushMessageToSlack (message: string): Promise<any> {
     if (e instanceof Error) {
       message = e.message
     }
+    console.error("Failed to push message to Slack:", e);
     throw new Error(`Failed to push message to Slack: ${message}`)
   }
 }
