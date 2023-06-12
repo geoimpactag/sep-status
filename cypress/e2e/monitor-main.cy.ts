@@ -29,6 +29,7 @@ function testUrl(urlElement): void {
   cy.visit(urlElement.url);
   if(urlElement.url === "https://sep.energyapps.ch"){
     cy.get("body").should("exist");
+    chai.expect(urlElement.url).to.equal("?")
   }
   else if(urlElement.url === "https://www.geoimpact.ch"){
     cy.get("body").should("exist");

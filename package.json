@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "cypress:open": "cross-env CHOKIDAR_USEPOLLING=1 npx cypress open",
-    "test": "npm run notify-build && npm run report && npm run notify && npm run copy-gh-page",
+    "test": "npm run notify-build && npm run report || echo \"Reporting done. Continuing test execution.\" && npm run notify && npm run copy-gh-page",
     "report": "cross-env CHOKIDAR_USEPOLLING=1 cypress run --reporter mochawesome --reporter-options reportDir=\"cypress/results\",overwrite=true,html=true,json=true,reportFilename=mochawesome,exit=false",
     "notify-dev": "cross-env CHOKIDAR_USEPOLLING=1 tsc --watch --project tsconfig.json",
     "notify-build": "cross-env CHOKIDAR_USEPOLLING=1 tsc --project tsconfig.json",
