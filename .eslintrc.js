@@ -16,6 +16,7 @@ module.exports = {
     sourceType: 'module'
   },
   rules: {
-    '@typescript-eslint/prefer-nullish-coalescing': "off"
+    '@typescript-eslint/prefer-nullish-coalescing': "off",
+    '@typescript-eslint/ban-ts-commen': "off"
   }
 }

@@ -7,7 +7,7 @@
   "scripts": {
     "cypress:open": "cross-env CHOKIDAR_USEPOLLING=1 npx cypress open",
     "test": "npm run notify-build && npm run report && npm run notify && npm run copy-gh-page",
-    "report": "cross-env CHOKIDAR_USEPOLLING=1 cypress run --reporter mochawesome --reporter-options reportDir=\"cypress/results\",overwrite=true,html=true,json=true,reportFilename=mochawesome",
+    "report": "cross-env CHOKIDAR_USEPOLLING=1 cypress run --reporter mochawesome --reporter-options reportDir=\"cypress/results\",overwrite=true,html=true,json=true,reportFilename=mochawesome,exit=false",
     "notify-dev": "cross-env CHOKIDAR_USEPOLLING=1 tsc --watch --project tsconfig.json",
     "notify-build": "cross-env CHOKIDAR_USEPOLLING=1 tsc --project tsconfig.json",
     "notify": "cross-env CHOKIDAR_USEPOLLING=1 node src/notify.js",
@@ -18,6 +18,7 @@
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.59.9",
     "@typescript-eslint/parser": "^5.59.9",
+    "chai": "^4.3.7",
     "cross-env": "^7.0.3",
     "cypress": "^12.14.0",
     "dotenv": "^16.1.4",

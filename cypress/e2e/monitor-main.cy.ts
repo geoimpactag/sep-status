@@ -1,3 +1,4 @@
+import * as chai from "chai";
 const urls = [
   {
     "name": "SEP",
