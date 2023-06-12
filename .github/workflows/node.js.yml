@@ -11,6 +11,7 @@ on:
 jobs:
   build:
     env:
+      SLACK_URL2: teststring
       SLACK_URL: ${{ secrets.SLACK_URL }}
     runs-on: ubuntu-latest
     strategy:
@@ -24,4 +25,4 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: echo "slack url is $SLACK_URL"
+    - run: echo "slack url is $SLACK_URL2"
