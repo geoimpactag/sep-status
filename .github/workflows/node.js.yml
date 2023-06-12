@@ -10,20 +10,21 @@ on:
     branches: [ "master" ]
 jobs:
   build:
-    env:
-      SLACK_URL: ${{ secrets.SLACK_URL }}
     runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version: [18.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
     steps:
-    - uses: actions/checkout@v3
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    - run: echo "the SLACK_URL env variable is $SLACK_URL"
-    - run: npm i
-    - run: npm run test
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        env:
+          SLACK_URL: ${{secrets.SLACK_URL}}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+          SLACK_URL: ${{secrets.SLACK_URL}}
+      - run: echo "the SLACK_URL env variable is $SLACK_URL"
+      - run: npm i
+      - run: npm run test
