@@ -8,9 +8,11 @@ on:
     branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
+  schedule:
+    # https://crontab.guru/#*/5_*_*_*_* --> runs at every 5th minute
+    - cron: '*/5 * * * *'
 env:
-  SLACK_URL: ${{ vars.SLACK_URL }}
-  SLACK_URL_SECRET: ${{ secrets.SLACK_URL }}
+  SLACK_URL: ${{ secrets.SLACK_URL }}
 jobs:
   build:
     environment:
@@ -28,6 +30,5 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
       - run: echo "the SLACK_URL env variable is $SLACK_URL"
-      - run: echo "the SLACK_URL_SECRET env variable is $SLACK_URL_SECRET"
       - run: npm i
       - run: npm run test
