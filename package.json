@@ -11,7 +11,7 @@
     "notify-dev": "cross-env CHOKIDAR_USEPOLLING=1 tsc --watch --project tsconfig.json",
     "notify-build": "cross-env CHOKIDAR_USEPOLLING=1 tsc --project tsconfig.json",
     "notify": "cross-env CHOKIDAR_USEPOLLING=1 node src/notify.js",
-    "copy-gh-page": "shx rm -rf docs/* && shx cp -r cypress/results/* docs"
+    "copy-gh-page": "shx rm -rf docs && shx mkdir docs && shx cp -r cypress/results/* docs"
   },
   "author": "",
   "license": "ISC",
