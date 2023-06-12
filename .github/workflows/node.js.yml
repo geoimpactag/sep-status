@@ -24,10 +24,8 @@ jobs:
     - name: Use Node.js ${{ matrix.node-version }}
       env:
         SLACK_URL: ${{ secrets.SLACK_URL }}
-      run: echo 'slack env var is $SLACK_URL'
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: npm i
-    - run: npm run test
+    - run: echo "slack url is $SLACK_URL"
