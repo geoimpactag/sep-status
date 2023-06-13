@@ -46,9 +46,10 @@ jobs:
     steps:
       - name: Setup Pages
         uses: actions/configure-pages@v3
+      - name: List files and directories
+        run: ls -lah
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
-      - run: ls -lah
         with:
           # Upload entire repository
           path: '.'
