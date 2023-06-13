@@ -1,7 +1,7 @@
 import 'dotenv/config';
 import { createRequire } from 'node:module';
 const require = createRequire(import.meta.url);
-const report = require('../cypress/results/mochawesome.json');
+const report = require('../cypress/results/index.json');
 import axios from 'axios';
 console.log('Starting the sep-status notification servivce.')
 console.log('Got the report file', report)

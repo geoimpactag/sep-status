@@ -43,6 +43,7 @@ function testUrl(urlElement): void {
 
 urls.forEach(urlElement => {
   it(`opens ${urlElement.url}`,() => {
+    Cypress.config('defaultCommandTimeout', 5000);
     testUrl(urlElement);
   })
 });
