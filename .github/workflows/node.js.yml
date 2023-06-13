@@ -37,12 +37,14 @@ jobs:
       - run: echo "the SLACK_URL env variable is $SLACK_URL"
       - run: npm i
       - run: npm run test
+      - run: npm run report-merge
+      - run: npm run report-make-html
       - name: Store Report HTML
         uses: actions/upload-artifact@v3
         with:
           name: report-html
           path: |
-            cypress/results
+            cypress/results/mochawesome-report
           retention-days: 1
   deploy:
     needs: build
