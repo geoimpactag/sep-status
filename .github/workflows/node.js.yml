@@ -35,6 +35,13 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
       - run: echo "the SLACK_URL env variable is $SLACK_URL"
+      - name: Store Report HTML
+        uses: actions/upload-artifact@v3
+        with:
+          name: report-html
+          path: |
+            cypress/results
+          retention-days: 1
       # - run: npm i
       # - run: npm run test
   deploy:
@@ -44,8 +51,10 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+      - name: Download the Report HTML
+        uses: actions/download-artifact@v3
+        with:
+          name: report-html
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: List files and directories
