@@ -39,6 +39,7 @@ jobs:
       - run: npm run test
       - run: npm run report-merge
       - run: npm run report-make-html
+      - run: npm run notify
       - name: Store Report HTML
         uses: actions/upload-artifact@v3
         with:

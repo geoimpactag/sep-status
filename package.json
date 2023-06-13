@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "cypress:open": "cross-env CHOKIDAR_USEPOLLING=1 npx cypress open",
-    "test": "npm run notify-build && npm run report || echo \"Reporting done. Continuing test execution.\" && npm run notify",
+    "test": "npm run notify-build && npm run report || echo \"Reporting done. Continuing test execution.\"",
     "report": "shx rm -rf cypress/results/* && cross-env CHOKIDAR_USEPOLLING=1 cypress run --reporter mochawesome --reporter-options reportDir=\"cypress/results\",overwrite=false,html=false,json=true,reportFilename=partial-report,exit=false,video=false",
     "report-merge": "npx mochawesome-merge ./cypress/results/partial-report*.json > ./cypress/results/index.json",
     "report-make-html": "cd ./cypress/results/ && npx mochawesome-report-generator index.json && cd ../../",
