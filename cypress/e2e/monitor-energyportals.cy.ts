@@ -1,44 +1,32 @@
-import * as url from "url";
+import * as util from "./util"
+/*
+* This is a dynamic cypress test: https://github.com/cypress-io/cypress-example-recipes/tree/master/examples/fundamentals__dynamic-tests
+* https://stackoverflow.com/questions/72766346/pre-scan-web-page-for-dynamic-tests/72795255#72795255
+* https://stackoverflow.com/questions/72766346/pre-scan-web-page-for-dynamic-tests/72795255#72795255
+* */
 
-const WEBFLOW_TOKEN = Cypress.env('WEBFLOW_TOKEN')
+import * as collectionItems from '../fixtures/webflow-collection.json'
+
 const languages = [
     "de-CH",
     "fr-CH",
     "it-CH"
-];
-describe("test", function (){
-    it("should work", function (){
-        cy.request({
-            url: 'https://api.webflow.com/collections/6321d649488f5f57b87f085a/items',
-            headers: {
-                'Content-Type': "application/json",
-                'Authorization': `Bearer ${WEBFLOW_TOKEN}`,
-            }
-        }).then(myRes => {
-            console.log("Got energy portals from WebFlow item collection", {
-                res: myRes, WEBFLOW_TOKEN
-            })
-            myRes.body.items
-                .filter(item => (
-                    item._archived === false
-                    && item.ejected === "false"
-                ))
-                .forEach(item => {
-                    languages.forEach(language => {
-                        const url = `https://energieportal.energyapps.ch/ep/${item.slug}?lng=${language}`;
-                        console.log(`Testing Energyportal ${url}`)
-                        cy.visit(url);
-                        cy.get("body").should("exist");
-                        cy.get("#sep-map").should("exist");
-                        cy.get("#sep-core").should("exist");
-                        cy.get("#object-address-autocomplete").should("exist");
-                        cy.get("#sep-contact-form").should("exist");
-                    })
+]
+describe("Tests all the unarchived energy portals", function (){
+    collectionItems
+        .filter(item => item._archived === false)
+        .forEach(item => {
+            languages.forEach(language => {
+                it(`opens energy portal "${item.slug}" in ${language}`, () => {
+                    const url = `https://energieportal.energyapps.ch/ep/${item.slug}?lng=${language}`;
+                    console.log(`Testing Energyportal ${url}`)
+                    cy.visit(url);
+                    cy.get("body").should("exist");
+                    cy.get("#sep-map").should("exist");
+                    cy.get("#sep-core").should("exist");
+                    cy.get("#object-address-autocomplete").should("exist");
+                    cy.get("#sep-contact-form").should("exist");
                 })
+            })
         })
-    })
 })
-
-/*
-
-*/
