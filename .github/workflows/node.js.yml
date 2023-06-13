@@ -35,6 +35,8 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
       - run: echo "the SLACK_URL env variable is $SLACK_URL"
+      - run: npm i
+      - run: npm run test
       - name: Store Report HTML
         uses: actions/upload-artifact@v3
         with:
@@ -42,8 +44,6 @@ jobs:
           path: |
             cypress/results
           retention-days: 1
-      # - run: npm i
-      # - run: npm run test
   deploy:
     needs: build
     environment:
@@ -63,7 +63,7 @@ jobs:
         uses: actions/upload-pages-artifact@v1
         with:
           # Upload the Report HTML root folder
-          path: './cypress/results/'
+          path: '.'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
