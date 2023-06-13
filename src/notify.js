@@ -42,7 +42,12 @@ async function pushMessageToSlack(message) {
 }
 await (async () => {
     checkEnv();
-    const message = `Tests passed: ${report.results[0].passes.length}\nTests failed: ${report.results[0].failures.length}`;
+    const message =
+        `
+Tests passed: ${report.results[0].passes.length}
+Tests failed: ${report.results[0].failures.length}
+Daboard: https://geoimpact.github.io/sep-status/
+`.trim();
     const res = await pushMessageToSlack(message);
     console.log('message has been delivered to slack', res);
 })();

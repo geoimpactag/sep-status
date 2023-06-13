@@ -27,23 +27,36 @@ const urls = [
 ]
 function testUrl(urlElement): void {
   cy.visit(urlElement.url);
-  if(urlElement.url === "https://sep.energyapps.ch"){
-    cy.get("body").should("exist");
-    chai.expect(urlElement.url).to.equal("?")
-  }
-  else if(urlElement.url === "https://www.geoimpact.ch"){
-    cy.get("body").should("exist");
-  }
-  else if(urlElement.url === "https://www.swissenergyplanning.ch"){
-    cy.get("body").should("exist");
-  } else {
-    cy.get("body").should("exist");
-  }
+  cy.get("body").should("exist");
 }
 
 urls.forEach(urlElement => {
   it(`opens ${urlElement.url}`,() => {
     Cypress.config('defaultCommandTimeout', 5000);
     testUrl(urlElement);
+  })
+});
+
+const languages = [
+  "de-CH",
+  "fr-CH",
+  "it-CH"
+];
+const energyPortalUrls = [
+  `https://energieportal.energyapps.ch/ep/bernex`,
+  `https://energieportal.energyapps.ch/ep/kloten`
+]
+energyPortalUrls.forEach(urlElement => {
+  languages.forEach(language => {
+    let url = `${urlElement}?lng=${language}`;
+    it(`loads ${url}`,() => {
+      Cypress.config('defaultCommandTimeout', 5000);
+      cy.visit(url);
+      cy.get("body").should("exist");
+      cy.get("#sep-map").should("exist");
+      cy.get("#sep-core").should("exist");
+      cy.get("#object-address-autocomplete").should("exist");
+      cy.get("#sep-contact-form").should("exist");
+    })
   })
 });
