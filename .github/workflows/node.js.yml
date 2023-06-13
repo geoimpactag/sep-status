@@ -58,11 +58,11 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: List files and directories
-        run: ls -lah cypress/results/
+        run: ls -lah
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
-          # Upload entire repository
+          # Upload the Report HTML root folder
           path: './cypress/results/'
       - name: Deploy to GitHub Pages
         id: deployment
