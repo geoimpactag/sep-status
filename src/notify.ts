@@ -52,6 +52,10 @@ await (async () => {
   Tests failed: ${report.stats.failures}
   Dashboard: https://geoimpact.github.io/sep-status/
   `.trim();
-  const res = await pushMessageToSlack(message)
-  console.log('message has been delivered to slack', res)
+  if(
+      report.stats.failures > 0
+  ){
+    const res = await pushMessageToSlack(message);
+    console.log('message has been delivered to slack', res);
+  }
 })()
