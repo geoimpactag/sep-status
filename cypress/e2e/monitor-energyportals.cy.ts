@@ -1,6 +1,8 @@
 import * as util from "./util"
 /*
-* This is a dynamic cypress test: https://github.com/cypress-io/cypress-example-recipes/tree/master/examples/fundamentals__dynamic-tests
+* This is a dynamic cypress test that fetches data from an external source and creates a fixture file before
+* running the test. Cypress is not able to create a dynamic number of "it("", ()=>{})" tests.
+* https://github.com/cypress-io/cypress-example-recipes/tree/master/examples/fundamentals__dynamic-tests
 * https://stackoverflow.com/questions/72766346/pre-scan-web-page-for-dynamic-tests/72795255#72795255
 * https://stackoverflow.com/questions/72766346/pre-scan-web-page-for-dynamic-tests/72795255#72795255
 * */
@@ -27,6 +29,16 @@ describe("Tests all the unarchived energy portals", function (){
                     cy.get("#sep-core").should("exist");
                     cy.get("#object-address-autocomplete").should("exist");
                     cy.get("#sep-contact-form").should("exist");
+                    // check if the map has been loaded in the correct language based on map attributions
+                    if(language === "de-CH"){
+                        cy.get(".leaflet-control-attribution").should("contain", "Amtliche Vermessung Schweiz / FL")
+                    }
+                    if(language === "fr-CH"){
+                        cy.get(".leaflet-control-attribution").should("contain", "Mensuration Officielle Suisse / FL")
+                    }
+                    if(language === "it-CH"){
+                        cy.get(".leaflet-control-attribution").should("contain", "Misurazione Ufficiale Svizzera / FL")
+                    }
                 })
             })
         })
