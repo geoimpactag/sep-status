@@ -7,3 +7,22 @@ This repository is meant to sun daily in a CI/CD pipeline and hosted on Github P
 
 ## Gettings started
 1. ``npm i && npm test``
+
+## Repository structure
+
+The E2E tests must be written in ``cypress/e2e``.
+
+The typical scheduled run executes the following scripts sequentially:
+
+````bash
+# Installs the deps in the CI
+npm i
+# Builds the ts files and runs the cypress tests with mochawsome
+npm run test
+# Merges the json files of all test suites into one file
+npm run report-merge
+# Generates a HTML file for the merged index.json file
+npm run report-make-html
+# Pushes notifications on Slack
+npm run notify
+````

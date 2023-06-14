@@ -17,6 +17,7 @@ describe("Tests all the unarchived energy portals", function (){
         .filter(item => item._archived === false)
         .forEach(item => {
             languages.forEach(language => {
+                Cypress.config('defaultCommandTimeout', 10 * 1000);
                 it(`opens energy portal "${item.slug}" in ${language}`, () => {
                     const url = `https://energieportal.energyapps.ch/ep/${item.slug}?lng=${language}`;
                     console.log(`Testing Energyportal ${url}`)

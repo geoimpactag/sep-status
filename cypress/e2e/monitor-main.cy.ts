@@ -31,8 +31,8 @@ describe("Test body of generic websites",  () => {
     cy.get("body").should("exist");
   }
   urls.forEach(urlElement => {
+    Cypress.config('defaultCommandTimeout', 10 * 1000);
     it(`opens ${urlElement.url}`,() => {
-      Cypress.config('defaultCommandTimeout', 10 * 1000);
       testUrl(urlElement);
     })
   });

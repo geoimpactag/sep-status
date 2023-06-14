@@ -10,7 +10,7 @@ on:
     branches: [ "master" ]
   schedule:
     # https://crontab.guru/#*/5_*_*_*_* --> runs at every 5th minute
-    - cron: '*/30 * * * *'
+    - cron: '*/180 * * * *'
 env:
   SLACK_URL: ${{ secrets.SLACK_URL }}
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
