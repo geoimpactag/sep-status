@@ -5,6 +5,8 @@
 Monitor cross-domain website with cypress and report errors to Slack.
 This repository is meant to sun daily in a CI/CD pipeline and hosted on Github Pages.
 
+The last scheduled run can be found on the [Github Page](https://geoimpact.github.io/sep-status/).
+
 ## Gettings started
 1. ``npm i && npm test``
 
