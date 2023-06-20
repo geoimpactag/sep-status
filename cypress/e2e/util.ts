@@ -2,7 +2,7 @@
 import axios from "axios";
 import 'dotenv/config';
 
-export async function fetchCollectionItems(token) {
+export async function fetchCollectionItems(token: string) {
     return axios({
         url: 'https://api.webflow.com/collections/6321d649488f5f57b87f085a/items',
         headers: {
@@ -10,7 +10,7 @@ export async function fetchCollectionItems(token) {
             'Authorization': `Bearer ${token}`,
         }
     }).then(res => {
-        console.log("got item collection", res);
+        console.log("got item collection", res?.data?.items?.length);
         return res;
     })
 }

@@ -1,5 +1,10 @@
 
-describe("Test body of generic websites",  () => {
+describe("Test body of generic websites",  {
+  retries: {
+    runMode: 2,
+    openMode: 1,
+  },
+}, () => {
   const urls = [
     {
       "name": "SEP",
@@ -26,7 +31,7 @@ describe("Test body of generic websites",  () => {
       "url": "https://energiereporter.ch/"
     }
   ]
-  function testUrl(urlElement): void {
+  function testUrl(urlElement: {url: string}): void {
     cy.visit(urlElement.url);
     cy.get("body").should("exist");
   }

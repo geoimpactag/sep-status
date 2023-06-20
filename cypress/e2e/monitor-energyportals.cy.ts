@@ -1,4 +1,3 @@
-import * as util from "./util"
 /*
 * This is a dynamic cypress test that fetches data from an external source and creates a fixture file before
 * running the test. Cypress is not able to create a dynamic number of "it("", ()=>{})" tests.
@@ -14,7 +13,12 @@ const languages = [
     "fr-CH",
     "it-CH"
 ]
-describe("Tests all the unarchived energy portals", function (){
+describe("Tests all the unarchived energy portals", {
+    retries: {
+        runMode: 2,
+        openMode: 1,
+    },
+},function (){
     collectionItems
         .filter(item => item._archived === false)
         .forEach(item => {
