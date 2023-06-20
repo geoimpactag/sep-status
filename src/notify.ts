@@ -45,7 +45,7 @@ async function pushMessageToSlack (message: string) {
   }
 }
 
-await (async () => {
+(async () => {
   checkEnv();
   const message = `
   Tests run: ${report.stats.start} - ${report.stats.end}

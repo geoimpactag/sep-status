@@ -46,7 +46,7 @@ async function pushMessageToSlack(message) {
         throw new Error(`Failed to push message to Slack: ${message}`);
     }
 }
-await (async () => {
+(async () => {
     checkEnv();
     const message = `
   Tests run: ${index_json_1.default.stats.start} - ${index_json_1.default.stats.end}
