@@ -2,13 +2,17 @@
   "compilerOptions": {
     "types": ["cypress", "node"],
     "lib": ["dom"],
-    "module": "es2022",
+    "module": "commonjs",
     "moduleResolution": "node",
     "target": "es2022",
     "resolveJsonModule": true,
     "sourceMap": true,
     "strict": true,
     "strictNullChecks": true,
+    "esModuleInterop": true
   },
-  "include": ["src/**/*.ts"]
+  "include": [
+    "src/**/*.ts",
+    "test/**/*.ts"
+  ]
 }

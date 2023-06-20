@@ -1,9 +1,10 @@
 import 'dotenv/config';
-import { createRequire } from 'node:module';
-const require = createRequire(import.meta.url);
-const report = require('../cypress/results/index.json');
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+// the '../cypress/results/index.json' is created dynamically.
+import report from '../cypress/results/index.json';
 import axios from 'axios';
-console.log('Starting the sep-status notification servivce.')
+console.log('Starting the sep-status notification service.')
 console.log('Got the report file', report)
 
 /*
@@ -20,7 +21,7 @@ function checkEnv(){
 /*
 * Crates a Slack notification
 * */
-async function pushMessageToSlack (message: string): Promise<any> {
+async function pushMessageToSlack (message: string) {
   const apiUrl = process.env.SLACK_URL
   try {
     const response = await axios({
@@ -44,7 +45,7 @@ async function pushMessageToSlack (message: string): Promise<any> {
   }
 }
 
-await (async () => {
+(async () => {
   checkEnv();
   const message = `
   Tests run: ${report.stats.start} - ${report.stats.end}
@@ -52,10 +53,6 @@ await (async () => {
   Tests failed: ${report.stats.failures}
   Dashboard: https://geoimpact.github.io/sep-status/
   `.trim();
-  if(
-      report.stats.failures > 0
-  ){
-    const res = await pushMessageToSlack(message);
-    console.log('message has been delivered to slack', res);
-  }
+  const res = await pushMessageToSlack(message);
+  console.log('message has been delivered to slack', res);
 })()

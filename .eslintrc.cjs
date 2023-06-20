@@ -8,15 +8,14 @@ module.exports = {
   plugins: ['@typescript-eslint'],
   root: true,
   parserOptions: {
-    project: [
-      './tsconfig.json',
-      './cypress/tsconfig.json'
-    ],
     ecmaVersion: 'latest',
     sourceType: 'module'
   },
   rules: {
     '@typescript-eslint/prefer-nullish-coalescing': "off",
     '@typescript-eslint/ban-ts-commen': "off"
-  }
+  },
+  ignorePatterns: [
+      "src/**/*.js"
+  ],
 }
