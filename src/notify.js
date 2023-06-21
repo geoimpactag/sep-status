@@ -48,8 +48,13 @@ async function pushMessageToSlack(message) {
 }
 (async () => {
     checkEnv();
+    let isPassed = false;
+    if (index_json_1.default?.stats?.failures === 0) {
+        isPassed = true;
+    }
     const message = `
   Tests run: ${index_json_1.default.stats.start} - ${index_json_1.default.stats.end}
+  Tests passed: ${isPassed.toString()}
   Tests success: ${index_json_1.default.stats.passPercent}%
   Tests failed: ${index_json_1.default.stats.failures}
   Dashboard: https://geoimpact.github.io/sep-status/
