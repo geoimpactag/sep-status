@@ -57,7 +57,7 @@ async function pushMessageToSlack(message) {
   Tests passed: ${isPassed.toString()}
   Tests success: ${index_json_1.default.stats.passPercent}%
   Tests failed: ${index_json_1.default.stats.failures}
-  Dashboard: https://geoimpact.github.io/sep-status/
+  Dashboard: https://geoimpactag.github.io/sep-status/
   `.trim();
     const res = await pushMessageToSlack(message);
     console.log('message has been delivered to slack', res);
